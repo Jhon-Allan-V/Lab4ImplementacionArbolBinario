@@ -124,11 +124,11 @@ Pair * nextTreeMap(TreeMap * tree) {
         
         while (tree -> current -> parent != NULL){
             
-            //TreeNode *aux = tree -> current;
-            
             if (tree -> current -> parent == NULL) return NULL;
 
-            if (tree -> lower_than(tree -> current -> pair -> key, tree -> current -> parent -> pair -> key) != 0){ // izp < dere == 0
+            //                                 nodo actual       vs           nodo padre
+            if (tree -> lower_than(tree -> current -> pair -> key, tree -> current -> parent -> pair -> key) != 1){// izq < dere == 0}
+                
                 tree -> current = tree -> current -> parent;
                 return tree -> current -> pair;
             }
