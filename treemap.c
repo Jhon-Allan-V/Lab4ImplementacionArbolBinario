@@ -96,17 +96,39 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 }
 
+
+struct TreeNode {
+    Pair* pair;
+    TreeNode * left;
+    TreeNode * right;
+    TreeNode * parent;
+};
+
+struct TreeMap {
+    TreeNode * root;
+    TreeNode * current;
+    int (*lower_than) (void* key1, void* key2);
+};
+
 // 6.- Implemente las funciones para recorrer la estructura: 
 // Pair* firstTreeMap(TreeMap* tree) retorna el primer Pair del mapa (el menor). 
 // Pair* nextTreeMap(TreeMap* tree) retornar el siguiente Pair del mapa a partir del puntero TreeNode* current. 
 // Recuerde actualizar este puntero.
 
-Pair * firstTreeMap(TreeMap * tree) {
-    return NULL;
+Pair * firstTreeMap(TreeMap * tree) { //tree es el arbol (root, current)
+    if (tree = NULL) return NULL;
+    
+    TreeNode *aux = tree -> root; //aux es un nodo (left, right, parent)
+    while (aux != NULL){
+        if (aux -> left == NULL) break;//return NULL;
+        aux = aux -> left;
+    }
+    return aux -> pair;
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
-    return NULL;
+    TreeNode *aux = tree -> current;
+    while ()
 }
 
 // 7. La función Pair* upperBound(TreeMap* tree, void* key) retorna el Pair con clave igual a key. 
