@@ -130,7 +130,7 @@ Pair * nextTreeMap(TreeMap * tree) {
 
             if (tree -> lower_than(tree -> current -> pair -> key, tree -> current -> parent -> pair -> key) != 0){ // izp < dere == 0
                 tree -> current = tree -> current -> parent;
-                return tree -> current;
+                return tree -> current -> pair;
             }
             
             tree -> current = tree -> current -> parent;
