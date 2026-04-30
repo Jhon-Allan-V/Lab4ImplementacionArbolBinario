@@ -31,3 +31,32 @@ treemap.c:132:1: error: control reaches end of non-void function [-Werror=return
       | ^
 cc1: all warnings being treated as errors
 d24cee2
+Thu Apr 30 08:19:49 PM UTC 2026: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:4:
+treemap.c:100:8: error: redefinition of ‘struct TreeNode’
+  100 | struct TreeNode {
+      |        ^~~~~~~~
+treemap.c:11:8: note: originally defined here
+   11 | struct TreeNode {
+      |        ^~~~~~~~
+treemap.c:107:8: error: redefinition of ‘struct TreeMap’
+  107 | struct TreeMap {
+      |        ^~~~~~~
+treemap.c:18:8: note: originally defined here
+   18 | struct TreeMap {
+      |        ^~~~~~~
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:131:12: error: expected expression before ‘)’ token
+  131 |     while ()
+      |            ^
+treemap.c:130:15: error: unused variable ‘aux’ [-Werror=unused-variable]
+  130 |     TreeNode *aux = tree -> current;
+      |               ^~~
+treemap.c:132:1: error: control reaches end of non-void function [-Werror=return-type]
+  132 | }
+      | ^
+cc1: all warnings being treated as errors
+4aa4e46

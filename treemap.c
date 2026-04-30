@@ -116,7 +116,7 @@ struct TreeMap {
 // Recuerde actualizar este puntero.
 
 Pair * firstTreeMap(TreeMap * tree) { //tree es el arbol (root, current)
-    if (tree = NULL) return NULL;
+    if (tree == NULL) return NULL;
     
     TreeNode *aux = tree -> root; //aux es un nodo (left, right, parent)
     while (aux != NULL){
