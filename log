@@ -129,3 +129,17 @@ treemap.c:139:1: error: control reaches end of non-void function [-Werror=return
       | ^
 cc1: all warnings being treated as errors
 59a355c
+Sun May  3 04:08:03 AM UTC 2026: 
+ treemap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+Compilation failed
+/nix/store/mkvc0lnnpmi604rqsjdlv1pmhr638nbd-binutils-2.44/bin/ld: /tmp/ccCSWDS9.o: in function `next_test1':
+/home/runner/workspace/test.c:360:(.text+0xdad): undefined reference to `nextTreeMap'
+/nix/store/mkvc0lnnpmi604rqsjdlv1pmhr638nbd-binutils-2.44/bin/ld: /tmp/ccCSWDS9.o: in function `next_test2':
+/home/runner/workspace/test.c:380:(.text+0xe22): undefined reference to `nextTreeMap'
+/nix/store/mkvc0lnnpmi604rqsjdlv1pmhr638nbd-binutils-2.44/bin/ld: /home/runner/workspace/test.c:388:(.text+0xe60): undefined reference to `nextTreeMap'
+/nix/store/mkvc0lnnpmi604rqsjdlv1pmhr638nbd-binutils-2.44/bin/ld: /home/runner/workspace/test.c:396:(.text+0xe98): undefined reference to `nextTreeMap'
+/nix/store/mkvc0lnnpmi604rqsjdlv1pmhr638nbd-binutils-2.44/bin/ld: /tmp/ccCSWDS9.o: in function `next_test3':
+/home/runner/workspace/test.c:414:(.text+0xf41): undefined reference to `nextTreeMap'
+collect2: error: ld returned 1 exit status
+79bdb05
