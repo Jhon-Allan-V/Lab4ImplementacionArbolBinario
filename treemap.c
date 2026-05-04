@@ -149,7 +149,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     //3 casos, nodo sin hijos, nodo con un solo hijo, nodo con 2 hijos
     //3 subcasos, nodo raiz, hijo izquierdo, hijo derecho.
 
-    if (node -> left == NULL && node -> right == NULL){
+    if (node -> left == NULL && node -> right == NULL){ //caso sin hijos
         if (node == tree -> root) tree -> root = NULL; //nodo raiz
         else if (node -> parent -> left == NULL) node -> parent -> left = NULL; //nodo izquierdo
         else node -> parent -> right = NULL; //nodo derecho
@@ -159,11 +159,50 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         return;
     }
         
-    else if (node -> left == NULL || node -> right == NULL){
-        
-    }
-    
+    else if (node -> left == NULL || node -> right == NULL){ //caso un solo hijo
+        TreeNode *hijo;
+        //detectar el nodo hijo
+        if (node -> left == NULL) hijo = node -> right;
+        else hijo = node -> left;
 
+        if (node == tree -> root){ //nodo raiz
+            tree -> root = hijo;
+            hijo -> parent = NULL;
+        }
+
+        else if (node -> parent -> left == node){//hijo izquierdo
+            node -> parent -> left = hijo;
+            hijo -> parent = NULL;
+        }
+
+        else{ //hijo derecho
+            node -> parent -> right = hijo;
+            hijo -> parent = node -> parent;
+        }
+
+        free(node -> pair);
+        free(node);
+        return;
+    }
+
+    if (node -> left != NULL && node -> right != NULL){//caso dos hijos
+        TreeNode *minimo = minimun(node -> right);
+        TreeNode *hijo = NULL;
+
+        node -> pair -> key = minimo -> pair -> key;
+        node -> pair -> value = minimo -> pair -> value;
+
+        if (minimo -> left != NULL) hijo = minimo -> left;
+        else if (minimo -> right != NULL) hijo = minimo -> right;
+
+        if (minimo -> parent -> left == minimo) minimo -> parent -> left = hijo;
+        else minimo -> parent -> right = hijo;
+
+        if (hijo != NULL) hijo -> parent = minimo -> parent;
+
+        free(minimo -> pair);
+        free(minimo);
+    }
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
