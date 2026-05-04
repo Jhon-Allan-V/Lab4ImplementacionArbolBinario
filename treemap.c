@@ -61,16 +61,16 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
     TreeNode *current = tree -> root;
 
     while (current != NULL){
-        if (is_equal(key, current -> key)){
+        if (is_equal(key, current -> pair -> key)){
             tree -> current = current;
             return current -> pair;
         }
         
-        if (tree -> lower_than(key, current -> key)){
+        if (tree -> lower_than(key, current -> pair -> key)){
             current = current -> left;
         }
 
-        if (tree -> lower_than(current -> key, key)){
+        if (tree -> lower_than(current -> pair -> key, key)){
             current = current -> right;
         }
     }
