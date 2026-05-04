@@ -288,3 +288,9 @@ treemap.c:24:5: note: declared here
    24 | int is_equal(TreeMap* tree, void* key1, void* key2){
       |     ^~~~~~~~
 c9ccd12
+Mon May  4 03:34:39 AM UTC 2026: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  29|0
+total_score: 60/60
+c96d51c
