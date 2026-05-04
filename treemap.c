@@ -84,6 +84,11 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
 
+    
+    TreeNode * new = malloc(sizeof(TreeNode));
+    if (new == NULL) exit(EXIT_FAILURE);
+
+    
 }
 
 // 4. Implemente la función TreeNode * minimum(TreeNode * x). 
