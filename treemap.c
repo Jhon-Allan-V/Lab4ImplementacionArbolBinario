@@ -93,7 +93,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
         
         parent = current; //guardar el padre
         
-        if (lower_than(key, current -> pair -> key)) current = current -> left;
+        if (tree -> lower_than(key, current -> pair -> key)) current = current -> left;
         else current = current -> right;
     }
 
