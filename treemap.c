@@ -84,10 +84,38 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
 
-    
-    TreeNode * new = malloc(sizeof(TreeNode));
+    TreeNode *current = tree -> root;
+    TreeNode *parent = NULL;
+
+    //hacer busqueda
+    while (current != NULL){
+        if (is_equal(tree, key, current -> pair -> key)) return;
+        
+        parent = current; //guardar el padre
+        
+        if (lower_than(key, current -> pair -> key)) current = current -> left;
+        else current = current -> right;
+    }
+
+    TreeNode *new = malloc(sizeof(TreeNode));
     if (new == NULL) exit(EXIT_FAILURE);
 
+    new -> pair = malloc(sizeof(Pair));
+    if (new -> pair == NULL) exit(EXIT_FAILURE);
+
+    new -> pair -> key = key;
+    new -> pair -> value = value;
+
+    new -> left = NULL;
+    new -> right = NULL;
+    new -> parent = parent;
+
+    if (tree == NULL) tree -> root = new;
+
+    if (tree -> lower_than(key, parent -> pair -> key)) parent -> left = new;
+    else parent -> right = new;
+
+    tree -> current = new;
     
 }
 
